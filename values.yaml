@@ -1,0 +1,22 @@
+deployment:
+  replicaCount: 3
+
+metadata:
+ name: "python-app-deployment"
+ 
+container:
+  name : "python-app"
+  port: 8000
+
+image:
+  name: "muhmdamin/my-app:latest"
+
+service:
+  name: "my-service"
+  type: "NodePort"
+  nodePort: 30055
+  targetPort: 8000
+  protocol: "TCP"
+
+pod:
+  label : "my-pod"
